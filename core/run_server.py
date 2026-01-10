@@ -2,7 +2,6 @@
 """
 Simple script to run the Zep Cloud server directly
 """
-
 import os
 import sys
 import logging
@@ -28,12 +27,12 @@ def main():
             mcp = server_module.mcp
             
             # Run the server on a specific host and port
-            host = os.getenv("MCP_HOST", "0.0.0.0")
-            port = int(os.getenv("MCP_PORT", "8080"))
+            host = "0.0.0.0"
+            port = int(os.getenv("PORT", "8000"))
             logger.info(f"🌐 Server running at http://{host}:{port}")
             
-            # Run the server
-            mcp.run()
+            # Run the server with SSE transport
+            mcp.run(transport="sse", host=host, port=port)
         else:
             logger.error("❌ MCP instance not found in server module")
             sys.exit(1)
@@ -43,4 +42,4 @@ def main():
         sys.exit(1)
 
 if __name__ == "__main__":
-    main() 
+    main()
