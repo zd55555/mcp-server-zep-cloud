@@ -1,0 +1,4 @@
+fastmcp
+zep-cloud
+uvicorn
+python-dotenv
