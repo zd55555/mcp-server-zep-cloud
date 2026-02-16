@@ -1,0 +1,9 @@
+{
+  "build": {
+    "builder": "NIXPACKS",
+    "buildCommand": "pip install -r config/requirements.txt"
+  },
+  "deploy": {
+    "startCommand": "cd core && python run_server.py"
+  }
+}
